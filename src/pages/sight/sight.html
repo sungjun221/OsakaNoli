@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'SIGHT_TITLE' | translate }}{{homeName}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let sight of sights" (click)="gotoDetail(sight.id, sight.grpId)">
+      <ion-thumbnail item-left>
+        <img src="{{sight.thumbPath}}">
+      </ion-thumbnail>
+      <h2>{{sight.name}}</h2>
+      <p>{{sight.desc}}</p>
+    </button>
+  </ion-list>
+
+
+</ion-content>

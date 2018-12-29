@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="sightDetail">{{ 'SIGHT_TITLE' | translate }}{{sightDetail.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cards-bg">
+<ion-card>
+  <img *ngIf="sightDetail" src="{{sightDetail.imgPath}}">
+  <ion-fab right top class="compassbtn">
+    <button ion-fab (click)="gotoMap()">
+      <ion-icon name="compass"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-card-content>
+    <ion-card-title *ngIf="sightDetail" [ngSwitch]="star">
+      {{sightDetail.name}}&nbsp;
+      <button ion-button color="danger" small round *ngSwitchCase="true" (click)="toggleFav()">
+        <ion-icon name="star"></ion-icon>&nbsp;{{ 'SIGHT_DETAIL_FAVORITE' | translate }}
+      </button>
+      <button ion-button color="danger" small round outline *ngSwitchCase="false" (click)="toggleFav()">
+        <ion-icon name="star"></ion-icon>&nbsp;{{ 'SIGHT_DETAIL_FAVORITE' | translate }}
+      </button>
+      <button ion-button color="danger" small round outline *ngSwitchDefault (click)="toggleFav()">
+        <ion-icon name="star"></ion-icon>&nbsp;{{ 'SIGHT_DETAIL_FAVORITE' | translate }}
+      </button>
+    </ion-card-title>
+    <p *ngIf="sightDetail">
+      {{sightDetail.desc}}
+    </p>
+    <br>
+    <div *ngIf="sightDetail">
+      <ion-row *ngIf="sightDetail.time">
+        <ion-col col-3>{{ 'SIGHT_DETAIL_HOURS_OF_USE' | translate }}</ion-col>
+        <ion-col col-9>{{sightDetail.time}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="sightDetail.way">
+        <ion-col col-3>{{ 'SIGHT_DETAIL_WAY_TO_GO' | translate }}</ion-col>
+        <ion-col col-9>{{sightDetail.way}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="sightDetail.fee">
+        <ion-col col-3>{{ 'SIGHT_DETAIL_FEE' | translate }}</ion-col>
+        <ion-col col-9>{{sightDetail.fee}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="sightDetail.url">
+        <ion-col col-3>{{ 'SIGHT_DETAIL_URL' | translate }}</ion-col>
+        <ion-col col-9>
+          <button ion-button color="dark" round small (click)="gotoSite(sightDetail.url)">
+            <ion-icon name='ios-link' is-active="false"><span class="small">&nbsp;&nbsp;{{sightDetail.url}}</span></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card-content>
+</ion-card>
+</ion-content>

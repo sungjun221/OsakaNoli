@@ -1,0 +1,122 @@
+<ion-navbar *navbar>
+  <ion-title>
+    {{ 'BBS_TITLE' | translate }}
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="bbs">
+  <ion-row *ngIf="globalVars.getIsLogin() == true">
+    <ion-col col-9>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="contents" placeholder="{{ 'BBS_PLACEHOLDER' | translate }}"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3 id="writeBtn">
+      <button ion-button full color="dark" (click)="writeBbs()">{{ 'BBS_SEND' | translate }}</button>
+    </ion-col>
+  </ion-row>
+  <!-- 로그인 안했으면 로그인하고 글쓰기 -->
+  <ion-row *ngIf="globalVars.getIsLogin() == false">
+    <ion-col>
+      <button ion-button icon-left color="light" (click)="gotoLogin()">{{ 'BBS_WRITE_WITH_LOGIN' | translate }}</button>
+    </ion-col>
+  </ion-row>
+  <!-- 로딩중 -->
+  <span *ngIf="loadingBar == true">
+    <ion-list *ngFor="let n of emptyLoopList">
+      <ion-card class="loading">
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="assets/img/bbs/unreg_lime.jpg">
+          </ion-avatar>
+          <p>■■■■■■</p>
+          <ion-note>{{ 'BBS_YYMMDD_EMPTY' | translate }}</ion-note>
+        </ion-item>
+        <ion-card-content>
+          ■■■■■■■ ■■■■■■■ ■■■■■■■ ■■■■■■■
+          ■■■■■ ■■■■■■■■ ■■■■■
+        </ion-card-content>
+        <ion-item>
+          <button ion-button icon-left clear item-end>
+            <ion-icon name="thumbs-up"></ion-icon>0
+          </button>
+          <button ion-button icon-left clear item-end>
+            <ion-icon name="text"></ion-icon>{{ 'BBS_WRITE_REPLY' | translate }}
+          </button>
+        </ion-item>
+      </ion-card>
+    </ion-list>
+    <div class="outer">
+      <div class="middle">
+        <div class="inner">
+          <div class="sk-circle">
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </span>
+  <span *ngIf="loadingBar == false">
+  <ion-list>
+    <ion-card *ngFor="let bbs of bbsList">
+      <span (click)="gotoDetail(bbs.bbsNo, bbs.userId, bbs.platformUserId, bbs.nickName, bbs.contents,
+                                bbs.thumbnailImage, bbs.regDate, bbs.likeCnt, bbs.replyCnt, bbs.isLike, bbs.country)">
+        <ion-item>
+          <ion-avatar item-left *ngIf="bbs.thumbnailImage">
+            <img src="{{bbs.thumbnailImage}}">
+          </ion-avatar>
+          <ion-avatar item-left *ngIf="bbs.thumbnailImage == null">
+            <img src="assets/img/bbs/unreg_lime.jpg">
+          </ion-avatar>
+          <h2>{{bbs.nickName}}</h2>
+          <ion-note>{{bbs.regDate}}</ion-note>
+        </ion-item>
+        <ion-card-content>
+          {{bbs.contents}}
+        </ion-card-content>
+      </span>
+      <ion-item>
+        <button ion-button icon-left clear item-end *ngIf="isLogin === false"
+                (click)="thumbsUpAlert()">
+          <ion-icon name="thumbs-up"></ion-icon>{{ 'BBS_LIKE' | translate }}{{bbs.likeCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+        <button ion-button icon-left clear item-end *ngIf="isLogin === true && bbs.isLike === false"
+                (click)="thumbsUp(bbs.bbsNo)">
+          <ion-icon name="thumbs-up"></ion-icon>{{ 'BBS_LIKE' | translate }}{{bbs.likeCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+        <button ion-button icon-left clear item-end *ngIf="isLogin === true && bbs.isLike === true"
+                (click)="thumbsDown(bbs.bbsNo)">
+          <ion-icon name="thumbs-up"></ion-icon>{{ 'BBS_LIKE_CANCEL' | translate }}{{bbs.likeCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+
+        <button ion-button icon-left clear item-end *ngIf="bbs.replyCnt <= 0"
+                (click)="gotoDetail(bbs.bbsNo, bbs.userId, bbs.platformUserId, bbs.nickName, bbs.contents,
+                                bbs.thumbnailImage, bbs.regDate, bbs.likeCnt, bbs.replyCnt, bbs.isLike, bbs.country)">
+          <ion-icon name="text"></ion-icon>{{ 'BBS_WRITE_REPLY' | translate }}
+        </button>
+        <button ion-button icon-left clear item-end *ngIf="bbs.replyCnt > 0"
+                (click)="gotoDetail(bbs.bbsNo, bbs.userId, bbs.platformUserId, bbs.nickName, bbs.contents,
+                                bbs.thumbnailImage, bbs.regDate, bbs.likeCnt, bbs.replyCnt, bbs.isLike, bbs.country)">
+          <ion-icon name="text"></ion-icon>{{ 'BBS_REPLY' | translate }}{{bbs.replyCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+  </span>
+
+  <ion-infinite-scroll *ngIf="isFinish == false" (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,29 @@
+{
+  "data" : [
+    { "id"        : "MM",
+      "name"      : "MINAMI",
+      "desc"      : "Shopping center and spectacular nightlife",
+      "imgPath"   : "assets/img/sight/mmi/dtb.jpg"
+    },
+    { "id"        : "KT",
+      "name"      : "KITA",
+      "desc"      : "economic center with department stores",
+      "imgPath"   : "assets/img/sight/kita/umd_sky_bld.jpg"
+    },
+    { "id"        : "OC",
+      "name"      : "Osaka Castle",
+      "desc"      : "Representative cultural assets",
+      "imgPath"   : "assets/img/sight/osk_cstl/osk_cstl.jpg"
+    },
+    { "id"        : "TJ",
+      "name"      : "Tennoji",
+      "desc"      : "A place with a commoner atmosphere",
+      "imgPath"   : "assets/img/sight/tnj/stn.jpg"
+    },
+    { "id"        : "BA",
+      "name"      : "BayArea",
+      "desc"      : "Scenery of harbor with shopping mall",
+      "imgPath"   : "assets/img/sight/bay/unv_std.jpg"
+    }
+  ]
+}

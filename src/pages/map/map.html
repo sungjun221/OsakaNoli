@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'MAP_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="map">
+  <span class="outer" *ngIf="loadingBar == true">
+    <div class="middle">
+      <div class="inner">
+        <div class="sk-circle">
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+      </div>
+    </div>
+  </span>
+  <span class="outermap" *ngIf="loadingBar==false">
+    <p>
+      <button class="innermap" ion-button icon-left color="dark" (click)="findMyPos()">
+        <ion-icon name='ios-pin'></ion-icon>
+        {{ 'MAP_MYPOS' | translate }}
+      </button>
+      <button class="innermap" ion-button icon-left color="dark" (click)="findOsk()">
+        <ion-icon name='ios-pin'></ion-icon>
+        {{ 'MAP_OSAKA' | translate }}
+      </button>
+    </p>
+    <ion-row>
+      <ion-col col-9>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="search" placeholder="Search"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button full (click)="searchSight()">{{ 'MAP_SEARCH' | translate }}</button>
+      </ion-col>
+    </ion-row>
+  </span>
+<div #map id="map"></div>
+</ion-content>

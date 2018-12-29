@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'TRANS_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="trans">
+  <div *ngFor="let tran of trans">
+    <button ion-button icon-left full round (click)="gotoWeb(tran.imgPath)">
+      <ion-icon name='ios-information-circle-outline'></ion-icon>
+      {{tran.name}}</button>
+    <p></p>
+  </div>
+  <button ion-button icon-left full round (click)="gotoWeb('https://m.cafe.naver.com/trvlnoli')">
+    <ion-icon name='ios-information-circle-outline'></ion-icon>
+    go CAFE</button>
+</ion-content>

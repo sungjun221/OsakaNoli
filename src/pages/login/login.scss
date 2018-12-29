@@ -1,0 +1,22 @@
+
+
+page-login {
+  ion-content{
+    background-image: url("../assets/img/login/bg_settings.jpg");
+    -webkit-background-image: url('../assets/img/login/bg_settings.jpg');
+  }
+
+  .center{
+    text-align: center;
+    color : black;
+  }
+
+  .msg{
+    font-size:18px;
+  }
+
+  .profile{
+    font-size:24px;
+    color: black;
+  }
+}

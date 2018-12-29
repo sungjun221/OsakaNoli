@@ -1,0 +1,320 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "AndroidManifest.xml": {
+        "parents": {
+          "/manifest/application": [
+            {
+              "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" android:name=\"com.google.android.gms.ads.AdActivity\" android:theme=\"@android:style/Theme.Translucent\" />",
+              "count": 1
+            }
+          ],
+          "/*": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+              "count": 2
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+              "count": 2
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-feature android:name=\"android.hardware.location.gps\" />",
+              "count": 1
+            }
+          ],
+          "/manifest": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+              "count": 1
+            }
+          ],
+          "application": [
+            {
+              "xml": "<meta-data android:name=\"com.kakao.sdk.AppKey\" android:value=\"@string/kakao_app_key\" />",
+              "count": 1
+            }
+          ],
+          "application/activity": [
+            {
+              "xml": "<intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /><category android:name=\"android.intent.category.BROWSABLE\" /><data android:host=\"@string/kakaolink_host\" android:scheme=\"@string/kakao_scheme\" /></intent-filter>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"name.ratson.cordova.admob.AdMob\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"FirebaseAnalytics\"><param name=\"android-package\" value=\"by.chemerisuk.cordova.firebase.FirebaseAnalyticsPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"KakaoTalk\"><param name=\"android-package\" value=\"com.htj.plugin.kakao.KakaoTalk\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://*.kakao.com\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://*.kakao.co.kr\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://*.kakaocdn.net\" />",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SQLitePlugin\"><param name=\"android-package\" value=\"io.sqlc.SQLitePlugin\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"io.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "res/values/kakao_strings.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<string name=\"kakao_app_key\">524eaa1966e4b77d8db9bd75246d60af</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"kakao_scheme\">kakao524eaa1966e4b77d8db9bd75246d60af</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"kakaolink_host\">kakaolink</string>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-admob-sdk": {
+      "PLAY_SERVICES_VERSION": "11.6.2",
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-promise-polyfill": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-admob-free": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-firebase-analytics": {
+      "FIREBASE_VERSION": "11.6.+",
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-htj-kakaotalk": {
+      "KAKAO_APP_KEY": "524eaa1966e4b77d8db9bd75246d60af",
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.sjkim.osakanoriapp"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-promise-polyfill.Promise",
+      "file": "plugins/cordova-promise-polyfill/www/Promise.js",
+      "pluginId": "cordova-promise-polyfill",
+      "runs": true
+    },
+    {
+      "id": "cordova-promise-polyfill.promise.min",
+      "file": "plugins/cordova-promise-polyfill/www/promise.min.js",
+      "pluginId": "cordova-promise-polyfill"
+    },
+    {
+      "id": "cordova-plugin-admob-free.AdMob",
+      "file": "plugins/cordova-plugin-admob-free/www/admob.js",
+      "pluginId": "cordova-plugin-admob-free",
+      "clobbers": [
+        "admob",
+        "AdMob",
+        "plugins.AdMob"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-firebase-analytics.FirebaseAnalytics",
+      "file": "plugins/cordova-plugin-firebase-analytics/www/FirebaseAnalytics.js",
+      "pluginId": "cordova-plugin-firebase-analytics",
+      "merges": [
+        "cordova.plugins.firebase.analytics"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "navigator.geolocation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "runs": true
+    },
+    {
+      "id": "cordova-plugin-htj-kakaotalk.KakaoTalk",
+      "file": "plugins/cordova-plugin-htj-kakaotalk/www/KakaoTalk.js",
+      "pluginId": "cordova-plugin-htj-kakaotalk",
+      "clobbers": [
+        "KakaoTalk"
+      ]
+    },
+    {
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open",
+        "window.open"
+      ]
+    },
+    {
+      "id": "cordova-plugin-network-information.network",
+      "file": "plugins/cordova-plugin-network-information/www/network.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "navigator.connection",
+        "navigator.network.connection"
+      ]
+    },
+    {
+      "id": "cordova-plugin-network-information.Connection",
+      "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "Connection"
+      ]
+    },
+    {
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
+    },
+    {
+      "id": "cordova-sqlite-storage.SQLitePlugin",
+      "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+      "pluginId": "cordova-sqlite-storage",
+      "clobbers": [
+        "SQLitePlugin"
+      ]
+    },
+    {
+      "id": "ionic-plugin-keyboard.keyboard",
+      "file": "plugins/ionic-plugin-keyboard/www/android/keyboard.js",
+      "pluginId": "ionic-plugin-keyboard",
+      "clobbers": [
+        "cordova.plugins.Keyboard"
+      ],
+      "runs": true
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-admob-sdk": "0.15.1",
+    "cordova-promise-polyfill": "0.0.2",
+    "cordova-plugin-admob-free": "0.15.0",
+    "cordova-plugin-device": "1.1.4",
+    "cordova-support-google-services": "1.1.0",
+    "cordova-plugin-firebase-analytics": "0.13.0",
+    "cordova-plugin-geolocation": "4.0.1",
+    "cordova-plugin-htj-kakaotalk": "1.0.0",
+    "cordova-plugin-inappbrowser": "1.7.2",
+    "cordova-plugin-ionic-webview": "1.1.16",
+    "cordova-plugin-network-information": "2.0.1",
+    "cordova-plugin-splashscreen": "4.0.3",
+    "cordova-plugin-whitelist": "1.3.1",
+    "cordova-sqlite-storage": "2.2.0",
+    "ionic-plugin-keyboard": "2.2.1"
+  }
+}

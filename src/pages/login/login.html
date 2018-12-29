@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<!--<ion-content padding class="login">-->
+  <!--<br/><br/><br/><br/><br/><br/>-->
+  <!--<h2>Select Language</h2>-->
+  <!--<button ion-button full color="dark" (click)="selectLang()">-->
+    <!--Language :&nbsp;-->
+    <!--<div *ngIf="globalVars.getLang() === 'ko'">-->
+      <!--한국어-->
+    <!--</div>-->
+    <!--<div *ngIf="globalVars.getLang() === 'en'">-->
+      <!--English-->
+    <!--</div>-->
+  <!--</button>-->
+<!--</ion-content>-->
+
+
+<ion-content padding class="login">
+  <div *ngIf="globalVars.getIsLogin() == false" class="center">
+  <br/><br/><br/><br/><br/><br/>
+  <h2>{{ 'LOGIN_PLEASE_LOGIN' | translate }}</h2>
+
+</div>
+  <div *ngIf="globalVars.getIsLogin() == true" class="center">
+    <br/><br/><br/><br/><br/>
+    <img src="{{globalVars.getUser().thumbnailImage}}">
+    <br/>
+    <span class="profile">{{globalVars.getUser().nickName}}</span>
+    <button ion-button icon-left full color="dark" (click)="logoutWithKakao()">
+      <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>
+      {{ 'LOGIN_LOGOUT' | translate }}</button>
+  </div>
+  <div class="center">
+    <br/>
+    <!--<button ion-button full icon-left color="dark">-->
+      <!--<ion-icon name="logo-google"></ion-icon>-->
+      <!--Sign in with Google (coming soon)-->
+    <!--</button>-->
+    <br/>
+    <br/>
+    <br/>
+    <h3>{{ 'LOGIN_SELECT_LANG' | translate }}</h3>
+  </div>
+  <button ion-button full color="dark" (click)="selectLang()">
+    Language :&nbsp;
+    <div *ngIf="globalVars.getLang() === 'ko'">
+      한국어
+    </div>
+    <div *ngIf="globalVars.getLang() === 'en'">
+      English
+    </div>
+  </button>
+</ion-content>

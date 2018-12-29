@@ -1,0 +1,105 @@
+<!--
+  Generated template for the BbsDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'BBS_DETAIL_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="cards-bg">
+  <ion-list class="card-main-bg">
+    <ion-card *ngIf="selBbs" >
+      <ion-item>
+        <ion-avatar item-left *ngIf="selBbs.thumbnailImage">
+          <img src="{{selBbs.thumbnailImage}}">
+        </ion-avatar>
+        <ion-avatar item-left *ngIf="selBbs.thumbnailImage == null">
+          <img src="assets/img/bbs/unreg_lime.jpg">
+        </ion-avatar>
+        <h2>{{selBbs.nickName}}</h2>
+        <ion-note>{{selBbs.regDate}}</ion-note>
+      </ion-item>
+      <ion-card-content>
+        {{selBbs.contents}}
+      </ion-card-content>
+      <ion-item>
+        <button ion-button icon-left clear item-end *ngIf="isLogin === false"
+                (click)="thumbsUpAlert()">
+          <ion-icon name="thumbs-up"></ion-icon>{{ 'BBS_LIKE' | translate }}{{selBbs.likeCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+        <button ion-button icon-left clear item-end *ngIf="isLogin === true && selBbs.isLike === false"
+                (click)="thumbsUp(selBbs.bbsNo)">
+          <ion-icon name="thumbs-up"></ion-icon>{{ 'BBS_LIKE' | translate }}{{selBbs.likeCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+        <button ion-button icon-left clear item-end *ngIf="isLogin === true && selBbs.isLike === true"
+                (click)="thumbsDown(selBbs.bbsNo)">
+          <ion-icon name="thumbs-up"></ion-icon>{{ 'BBS_LIKE_CANCEL' | translate }}{{selBbs.likeCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+        <button ion-button icon-left clear item-end>
+          <ion-icon name="text"></ion-icon>{{ 'BBS_REPLY' | translate }}{{selBbs.replyCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+  <br>
+  <br>
+  <ion-list>
+    <ion-card *ngFor="let bbsReply of bbsReplyList">
+      <ion-item>
+        <ion-avatar item-left *ngIf="bbsReply.thumbnailImage">
+          <img src="{{bbsReply.thumbnailImage}}">
+        </ion-avatar>
+        <ion-avatar item-left *ngIf="bbsReply.thumbnailImage == null">
+          <img src="assets/img/bbs/unreg_lime.jpg">
+        </ion-avatar>
+        <h2>{{bbsReply.nickName}}</h2>
+        <ion-note>{{bbsReply.regDate}}</ion-note>
+      </ion-item>
+      <ion-card-content>
+        {{bbsReply.contents}}
+      </ion-card-content>
+      <ion-item>
+        <button ion-button icon-left clear item-end *ngIf="isLogin === false"
+                (click)="thumbsUpAlert()">
+          <ion-icon name="thumbs-up"></ion-icon>{{ 'BBS_LIKE' | translate }}{{bbsReply.likeCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+        <button ion-button icon-left clear item-end *ngIf="isLogin === true && bbsReply.isLike === false"
+                (click)="thumbsUpDetail(bbsReply.bbsNo, bbsReply.bbsReplyNo)">
+          <ion-icon name="thumbs-up"></ion-icon>{{ 'BBS_LIKE' | translate }}{{bbsReply.likeCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+        <button ion-button icon-left clear item-end *ngIf="isLogin === true && bbsReply.isLike === true"
+                (click)="thumbsDownDetail(bbsReply.bbsNo, bbsReply.bbsReplyNo)">
+          <ion-icon name="thumbs-up"></ion-icon>{{ 'BBS_LIKE_CANCEL' | translate }}{{bbsReply.likeCnt}}{{ 'BBS_COUNT' | translate }}
+        </button>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+
+  <!-- 댓글쓰기 -->
+  <!-- 로그인 된 상태면 글쓰기 -->
+  <ion-row *ngIf="globalVars.getIsLogin() == true">
+    <ion-col col-9>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="contents" placeholder="{{ 'BBS_WRITE_REPLY' | translate }}"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3 id="writeBtn">
+      <button ion-button full color="dark" (click)="writeReply()">{{ 'BBS_SEND' | translate }}</button>
+    </ion-col>
+  </ion-row>
+  <!-- 로그인 안했으면 로그인하고 글쓰기 -->
+  <ion-row *ngIf="globalVars.getIsLogin() == false">
+    <ion-col>
+      <button ion-button icon-left full (click)="gotoLogin()">{{ 'BBS_WRITE_WITH_LOGIN' | translate }}</button>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>

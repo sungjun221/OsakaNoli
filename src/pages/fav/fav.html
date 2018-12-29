@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'FAV_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="favMinami.length == 0 && favKita.length == 0 && favOsakaCastle.length == 0 && favTennoji.length == 0 && favBayArea.length == 0">
+    <br/>
+    <br/>
+    <div class="notice">
+      {{ 'FAV_NO_RESULT' | translate }}
+    </div>
+  </ion-list>
+
+
+
+  <ion-list *ngIf="favMinami && favMinami.length > 0">
+    <!-- minami -->
+    <ion-list-header>
+      {{ 'FAV_TITLE_MINAMI' | translate }}
+    </ion-list-header>
+    <button ion-item *ngFor="let fav of favMinami" (click)="gotoDetail(fav.id,fav.grpId)">
+      <ion-thumbnail item-left>
+        <img src="{{fav.thumbPath}}">
+      </ion-thumbnail>
+      <h2>{{fav.name}}</h2>
+    </button>
+  </ion-list>
+
+    <!-- kita -->
+  <ion-list *ngIf="favKita && favKita.length > 0">
+    <ion-list-header>
+      {{ 'FAV_TITLE_KITA' | translate }}
+    </ion-list-header>
+    <button ion-item *ngFor="let fav of favKita" (click)="gotoDetail(fav.id,fav.grpId)">
+      <ion-thumbnail item-left>
+        <img src="{{fav.thumbPath}}">
+      </ion-thumbnail>
+      <h2>{{fav.name}}</h2>
+    </button>
+  </ion-list>
+
+    <!-- osaka castle -->
+  <ion-list *ngIf="favOsakaCastle && favOsakaCastle.length > 0">
+    <ion-list-header>
+      {{ 'FAV_TITLE_OSAKA_CASTLE' | translate }}
+    </ion-list-header>
+    <button ion-item *ngFor="let fav of favOsakaCastle" (click)="gotoDetail(fav.id,fav.grpId)">
+      <ion-thumbnail item-left>
+        <img src="{{fav.thumbPath}}">
+      </ion-thumbnail>
+      <h2>{{fav.name}}</h2>
+    </button>
+  </ion-list>
+
+    <!-- tennoji -->
+  <ion-list *ngIf="favTennoji && favTennoji.length > 0">
+    <ion-list-header>
+      {{ 'FAV_TITLE_TENNOJI' | translate }}
+    </ion-list-header>
+    <button ion-item *ngFor="let fav of favTennoji" (click)="gotoDetail(fav.id,fav.grpId)">
+      <ion-thumbnail item-left>
+        <img src="{{fav.thumbPath}}">
+      </ion-thumbnail>
+      <h2>{{fav.name}}</h2>
+    </button>
+  </ion-list>
+
+    <!-- bayarea -->
+  <ion-list *ngIf="favBayArea && favBayArea.length > 0">
+    <ion-list-header>
+      {{ 'FAV_TITLE_BAYAREA' | translate }}
+    </ion-list-header>
+    <button ion-item *ngFor="let fav of favBayArea" (click)="gotoDetail(fav.id,fav.grpId)">
+      <ion-thumbnail item-left>
+        <img src="{{fav.thumbPath}}">
+      </ion-thumbnail>
+      <h2>{{fav.name}}</h2>
+    </button>
+  </ion-list>
+
+</ion-content>
